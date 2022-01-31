@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    회원가입
+{% endblock title %}
+    {% block others %}
+    {% endblock others %}
+{%block content %}
+    {%include 'partials/navbar.html' %}
+    <form action="" method="POST">
+            {% csrf_token %}
+
+            {% for form in forms  %}
+            <div>
+                <label for="{{ form.id_for_label}}">{{ form.label }}</label>
+                    {{ form }}
+            </div>
+            {% endfor %}
+            {% if error %}
+            {{errors}}
+            {% endif %}
+            {}
+            <input type="submit" value="Sign Up">
+    </form>
+
+{% endblock content %}
